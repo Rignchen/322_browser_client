@@ -1,0 +1,52 @@
+<div style="padding: 1.5rem;">
+  <div class="back-button">
+    <app-back-button/>
+    <span class="phone">Détails de la randonnée</span>
+  </div>
+  <br>
+
+  <div id="walk-miniature">
+    <img src="{{walk.image_url}}" alt="{{walk.name}}">
+    <div>
+      <h1 class="title">
+        {{walk.name}}
+      </h1>
+      <p class="description">
+        {{walk.description}}
+      </p>
+    </div>
+  </div>
+
+  <div class="tags">
+    <div class="tag">
+      <mat-icon>schedule</mat-icon>
+      <span class="bold">Durée</span>
+      <span>{{walk.duration}} h</span>
+    </div>
+    <div class="tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+      <span class="bold">Distance</span>
+      <span>{{walk.distance_km}} km</span>
+    </div>
+    <div class="tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trees"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"/><path d="M7 16v6"/><path d="M13 19v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"/></svg>
+      <span class="bold">Terrain</span>
+      <span>{{walk.terrain}}</span>
+    </div>
+    <div class="tag">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mountain"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+      <span class="bold">Dénivelé</span>
+      <span>{{walk.elevation_gain_m}} m</span>
+    </div>
+  </div>
+
+  <div class="computer">
+    <iframe src="{{walk.map_url}}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="center"></iframe>
+    <a href="{{walk.map_url}}" class="center">Ouvrir dans Maps</a>
+  </div>
+
+  <app-discover-magazine
+      title="Vous voulez plus de détails ?"
+      description="Retrouvez l'intégralité de cette randonnée et bien d'autres dans notre magazine Passer Simple."
+      class="phone"/>
+</div>

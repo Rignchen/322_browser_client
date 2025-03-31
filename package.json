@@ -1,6 +1,10 @@
 {
   "name": "ps",
   "version": "0.0.0",
+  "imports": {
+    "#types/*": "./src/types/*",
+    "#components/*": "./src/app/components/*"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
