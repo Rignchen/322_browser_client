@@ -2,6 +2,17 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
 
+## Environment Setup
+
+First thing to do is fill the environment file with the correct values.\
+The file is stored in `src/types/.env.ts`
+
+```sh
+cp src/types/.env.example.ts src/types/.env.ts
+```
+
+Then, fill the file with the correct values.
+
 ## Development server
 
 To start a local development server, run:
