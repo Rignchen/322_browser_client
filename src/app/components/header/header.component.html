@@ -1,6 +1,15 @@
-<span id="logo">
-  <mat-icon> location_on</mat-icon>
-  <span>
-    PS
-  </span>
-</span>
+<div>
+	<span id="logo">
+		<mat-icon> location_on</mat-icon>
+		<span>
+			PS
+		</span>
+	</span>
+
+	<input
+		matIcon
+		type="search"
+		placeholder="Rechercher une randonnée..."
+		(keyup)="onKeyUp($event)"
+	/>
+</div>
