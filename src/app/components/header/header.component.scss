@@ -1,0 +1,19 @@
+#logo {
+	padding: 0.5rem 0 0 0.5rem;
+	display: flex;
+	align-items: center;
+	color: var(--primary, #008C72);
+
+	span {
+		font-family: Inter;
+		font-size: 2.25rem;
+		font-style: normal;
+		font-weight: 900;
+		line-height: normal;
+	}
+
+	mat-icon {
+		font-size: 1.8rem;
+		padding: 0 0.5rem 0.5rem 0;
+	}
+}
