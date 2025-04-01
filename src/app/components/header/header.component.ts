@@ -11,6 +11,7 @@ import { Router} from '@angular/router';
 })
 export class HeaderComponent {
 	// Properties
+	lastPath: string = '';
 	constructor(private router: Router) {}
 
 	// Method to handle search input change
@@ -21,8 +22,12 @@ export class HeaderComponent {
 
 	redrectSearch(search: string) {
 		if (!search) {
-			this.router.navigate(['']);
+			this.router.navigate([this.lastPath]);
+			this.lastPath = '';
 		} else {
+			if (this.lastPath.length === 0) {
+				this.lastPath = this.router.url;
+			}
 			this.router.navigate(['search'], { queryParams: { s: search } });
 		}
 	}
