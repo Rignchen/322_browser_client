@@ -19,6 +19,11 @@ export class HeaderComponent {
 		const input = event.target as HTMLInputElement;
 		this.redrectSearch(input.value);
 	}
+	onSearchButtonClick(event: Event): void {
+		const input = (event.target as HTMLElement).parentElement?.getElementsByTagName('input');
+		if (!input) throw new Error('The input element disappeared :(');
+		this.redrectSearch(input[0].value);
+	}
 
 	redrectSearch(search: string) {
 		if (!search) {
