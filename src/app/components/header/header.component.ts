@@ -25,10 +25,12 @@ export class HeaderComponent {
 			this.router.navigate([this.lastPath]);
 			this.lastPath = '';
 		} else {
+			let args = { queryParams: { s: search }, replaceUrl: true};
 			if (this.lastPath.length === 0) {
 				this.lastPath = this.router.url;
+				args.replaceUrl = false;
 			}
-			this.router.navigate(['search'], { queryParams: { s: search } });
+			this.router.navigate(['search'], args);
 		}
 	}
 }
