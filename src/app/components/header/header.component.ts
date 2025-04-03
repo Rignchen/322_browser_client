@@ -22,15 +22,15 @@ export class HeaderComponent {
 	onSearchButtonClick(event: Event): void {
 		const input = (event.target as HTMLElement).parentElement?.parentElement?.getElementsByTagName('input');
 		if (!input) throw new Error('The input element disappeared :(');
-		this.redrectSearch(input[0].value);
+		this.redrectSearch(input[0].value, true);
 	}
 
-	redrectSearch(search: string) {
+	redrectSearch(search: string, addToHistory: boolean = false): void {
 		if (!search) {
 			this.router.navigate([this.lastPath]);
 			this.lastPath = '';
 		} else {
-			let args = { queryParams: { s: search }, replaceUrl: true};
+			let args = { queryParams: { s: search }, replaceUrl: !addToHistory };
 			if (this.lastPath.length === 0) {
 				this.lastPath = this.router.url;
 				args.replaceUrl = false;
