@@ -1,8 +1,21 @@
 div {
-  display: flex;
-  align-items: center;
-  gap: 6rem;
-  height: 4.0625rem;
+	display: flex;
+	align-items: center;
+
+}
+
+div#header {
+	gap: 6rem;
+	height: 4.0625rem;
+}
+
+div#search_bar {
+	button {
+		margin-left: -3rem;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+	}
 }
 
 #logo {

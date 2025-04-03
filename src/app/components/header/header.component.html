@@ -1,4 +1,4 @@
-<div>
+<div id="header">
 	<span id="logo">
 		<mat-icon> location_on</mat-icon>
 		<span>
@@ -6,13 +6,15 @@
 		</span>
 	</span>
 
-	<input
-		matIcon
-		type="search"
-		placeholder="Rechercher une randonnée..."
-		(keyup)="onKeyUp($event)"
-	/>
-  <button (click)="onSearchButtonClick($event)">
-    <mat-icon> search </mat-icon>
-  </button>
+	<div id="search_bar">
+		<input
+				matIcon
+				type="search"
+				placeholder="Rechercher une randonnée..."
+				(keyup)="onKeyUp($event)"
+				/>
+		<button (click)="onSearchButtonClick($event)">
+			<mat-icon> search </mat-icon>
+		</button>
+	</div>
 </div>
