@@ -1,7 +1,6 @@
 div {
 	display: flex;
 	align-items: center;
-
 }
 
 div#header {
@@ -36,6 +35,10 @@ div#search_bar {
 		font-size: 1.8rem;
 		padding: 0 0.5rem 0.5rem 0;
 	}
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 input {
