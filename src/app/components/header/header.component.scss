@@ -9,11 +9,24 @@ div#header {
 }
 
 div#search_bar {
+  width: 100%;
 	button {
 		margin-left: -3rem;
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
+	}
+
+	input {
+		border: none;
+		padding: 0.8rem 14rem 0.8rem 1rem;
+		border-radius: 2rem;
+		background-color: #E6F0E6;
+		color: #49454F;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
 	}
 }
 
@@ -36,15 +49,7 @@ div#search_bar {
 		padding: 0 0.5rem 0.5rem 0;
 	}
 
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-input {
-	border: none;
-	padding: 0.8rem 14rem 0.8rem 1rem;
-	border-radius: 2rem;
-	background-color: #E6F0E6;
-	color: #49454F;
+	@media (max-width: 768px) {
+		display: none;
+	}
 }
