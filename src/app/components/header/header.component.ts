@@ -22,6 +22,7 @@ export class HeaderComponent {
 	onSearchButtonClick(event: Event): void {
 		const input = (event.target as HTMLElement).parentElement?.parentElement?.getElementsByTagName('input');
 		if (!input) throw new Error('The input element disappeared :(');
+		if (this.lastPath.length === 0) return;
 		this.redrectSearch(input[0].value, true);
 	}
 
