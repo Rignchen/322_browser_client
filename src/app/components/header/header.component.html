@@ -1,0 +1,20 @@
+<div id="header">
+	<a id="logo" routerLink="/">
+		<mat-icon> location_on</mat-icon>
+		<span>
+			PS
+		</span>
+	</a>
+
+	<div id="search_bar">
+		<input
+				matIcon
+				type="search"
+				placeholder="Rechercher une randonnée..."
+				(keyup)="onKeyUp($event)"
+				/>
+		<button (click)="onSearchButtonClick($event)">
+			<mat-icon> search </mat-icon>
+		</button>
+	</div>
+</div>
