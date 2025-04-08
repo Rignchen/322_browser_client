@@ -16,25 +16,21 @@ export class SearchComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.route.queryParams.subscribe(params => {
-			const searchTerm = params['s'] || '';
-			this.searchTerm = searchTerm;
+			const search: string|null = params['s'] || null;
+			const difficulty: string[] = params['d']?.split(',') || [];
+			const terrain: string[] = params['t']?.split(',') || [];
+			const accessibility: string[] = params['a']?.split(',') || [];
+			const duration: [number|null, number|null] = [params['min'] || null, params['max'] || null];
 
-			Walk.fetchFilter(searchTerm, [
-				// "Beginner",
-				// "Intermediate",
-				// "Advanced",
-			], [
-				// "Forest",
-				// "Mountain",
-				// "Lake",
-			], [
-				// "Children",
-				// "Dog-friendly",
-				// "Cycling",
-				// "Wealchair",
-				// "Accessible in winter",
-			], [3, 5])
-				.then(console.log);
-		});
+			this.searchTerm = JSON.stringify({
+				search: search,
+				difficulty: difficulty,
+				terrain: terrain,
+				accessibility: accessibility,
+				duration: duration
+			}, null, 1);
+
+			Walk.fetchFilter(search, difficulty, terrain, accessibility, duration).then(console.log);
+		})
 	}
 }
