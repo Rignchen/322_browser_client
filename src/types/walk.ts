@@ -1,4 +1,5 @@
 import env from './env';
+import fetcher from './fetch';
 
 export default class Walk {
 	id: number = 0;
@@ -29,13 +30,8 @@ export default class Walk {
 	}
 
 	fetchFromID(id: number) {
-		fetch(`${env.API_URL}/walks?id=${id}`)
-			.then((response) => response.json())
-			.then((data) => {
-				data = data[0];
-				data.map_url = "https://www.google.com/maps/embed?" + data.map_url;
-				this.fromObject(data);
-			});
+		fetcher.getWalkFromId(id)
+			.then((data) => this.fromObject(data));
 	}
 
 	/**
@@ -54,25 +50,10 @@ export default class Walk {
 		accessibility: string[],
 		duration: [number|null, number|null]
 	) {
-		let args: string[] = [];
-		// Filter the arguments to only include those that are not null or empty
-		if (name) args.push(`name_like=${name}`);
-		if (difficulty.length > 0) args.push(difficulty.map((d) => `difficulty[]=${d}`).join('&'));
-		if (terrain.length > 0) args.push(terrain.map((t) => `terrain[]=${t}`).join('&'));
-		// duration.zip("gte", "lte").filter(!isNull).forEach(args.push(`duration_${v.1}=${v.0}`));
-		duration.map((v, i) => [v, ["gte", "lte"][i]]).filter((v) => v[0] !== null).forEach((v) => args.push(`duration_${v[1]}=${v[0]}`));
-		// accessibility is return as a string array by the API, I don't know how to tell the api "should include"
-
-		// Construct the query string from the arguments
-		let query = args.join('&');
-		if (query.length > 0) query = '?' + query;
-
 		// Fetch the data from the API
-		let data = await fetch(`${env.API_URL}/walks${query}`)
-			.then((response) => response.json())
+		let data = await fetcher.getWalkFiltered(name, difficulty, terrain, duration)
 			.then((data) => {
 				data = data.map((walk: any) => {
-					walk.map_url = "https://www.google.com/maps/embed?" + walk.map_url;
 					return (new Walk).fromObject(walk);
 				});
 				return data;
