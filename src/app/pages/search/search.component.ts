@@ -28,12 +28,12 @@ export class SearchComponent implements OnInit {
 				// "Mountain",
 				// "Lake",
 			], [
-				"Children",
+				// "Children",
 				// "Dog-friendly",
 				// "Cycling",
-				"Wealchair",
+				// "Wealchair",
 				// "Accessible in winter",
-			])
+			], [3, 5])
 				.then(console.log);
 		});
 	}

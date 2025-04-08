@@ -38,19 +38,34 @@ export default class Walk {
 			});
 	}
 
-	static async fetchFilter(name: string|null, difficulty: string[], terrain: string[], accessibility: string[]) {
+	/**
+	 * Fetches a list of walks from the API with optional filters.
+	 * @param name The name of the walk, detected like %name%
+	 * @param difficulty The difficulty of the walk
+	 * @param terrain The terrain of the walk
+	 * @param accessibility The accessibility of the walk
+	 * @param duration The minimum and maximum duration of the walk
+	 * @returns A promise that resolves to an array of Walk objects.
+	 */
+	static async fetchFilter(
+		name: string|null,
+		difficulty: string[],
+		terrain: string[],
+		accessibility: string[],
+		duration: [number|null, number|null]
+	) {
 		let args: string[] = [];
 		// Filter the arguments to only include those that are not null or empty
 		if (name) args.push(`name_like=${name}`);
 		if (difficulty.length > 0) args.push(difficulty.map((d) => `difficulty[]=${d}`).join('&'));
 		if (terrain.length > 0) args.push(terrain.map((t) => `terrain[]=${t}`).join('&'));
+		// duration.zip("gte", "lte").filter(!isNull).forEach(args.push(`duration_${v.1}=${v.0}`));
+		duration.map((v, i) => [v, ["gte", "lte"][i]]).filter((v) => v[0] !== null).forEach((v) => args.push(`duration_${v[1]}=${v[0]}`));
 		// accessibility is return as a string array by the API, I don't know how to tell the api "should include"
 
 		// Construct the query string from the arguments
 		let query = args.join('&');
 		if (query.length > 0) query = '?' + query;
-
-		console.log(`Fetching walks with query: ${query}`);
 
 		// Fetch the data from the API
 		let data = await fetch(`${env.API_URL}/walks${query}`)
