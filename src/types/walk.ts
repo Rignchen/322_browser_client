@@ -25,6 +25,7 @@ export default class Walk {
 				this.terrain = data.terrain;
 				this.accessibility = data.accessibility;
 				this.difficulty = data.difficulty;
+				return this;
 	}
 
 	fetchFromID(id: number) {
@@ -37,28 +38,28 @@ export default class Walk {
 			});
 	}
 
-  static async fetchFilter(name: string|null, difficulty: string[], terrain: string[], accessibility: string[]) {
-    let args: string[] = [];
-    // Filter the arguments to only include those that are not null or empty
-    if (name) args.push(`name_like=${name}`);
+	static async fetchFilter(name: string|null, difficulty: string[], terrain: string[], accessibility: string[]) {
+		let args: string[] = [];
+		// Filter the arguments to only include those that are not null or empty
+		if (name) args.push(`name_like=${name}`);
 
-    // Construct the query string from the arguments
-    let query = args.join('&');
-    if (query.length > 0) query = '?' + query;
+		// Construct the query string from the arguments
+		let query = args.join('&');
+		if (query.length > 0) query = '?' + query;
 
-    console.log(`Fetching walks with query: ${query}`);
+		console.log(`Fetching walks with query: ${query}`);
 
-    // Fetch the data from the API
-    let data = await fetch(`${env.API_URL}/walks${query}`)
-      .then((response) => response.json())
-      .then((data) => {
-        data = data.map((walk: any) => {
-          walk.map_url = "https://www.google.com/maps/embed?" + walk.map_url;
-          return walk;
-        });
-        return data;
-      });
+		// Fetch the data from the API
+		let data = await fetch(`${env.API_URL}/walks${query}`)
+			.then((response) => response.json())
+			.then((data) => {
+				data = data.map((walk: any) => {
+					walk.map_url = "https://www.google.com/maps/embed?" + walk.map_url;
+					return (new Walk).fromObject(walk);
+				});
+				return data;
+			});
 
-    return data;
-  }
+		return data;
+	}
 }
