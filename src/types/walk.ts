@@ -42,6 +42,7 @@ export default class Walk {
 		let args: string[] = [];
 		// Filter the arguments to only include those that are not null or empty
 		if (name) args.push(`name_like=${name}`);
+		if (difficulty.length > 0) args.push(difficulty.map((d) => `difficulty[]=${d}`).join('&'));
 
 		// Construct the query string from the arguments
 		let query = args.join('&');
