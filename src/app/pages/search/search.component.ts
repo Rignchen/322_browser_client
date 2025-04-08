@@ -20,10 +20,14 @@ export class SearchComponent implements OnInit {
 			this.searchTerm = searchTerm;
 
 			Walk.fetchFilter(searchTerm, [
-				"Beginner",
-				//"Intermediate",
-				"Advanced",
-			], [], [])
+				// "Beginner",
+				// "Intermediate",
+				// "Advanced",
+			], [
+				"Forest",
+				// "Mountain",
+				"Lake",
+			], [])
 				.then(console.log);
 		});
 	}
