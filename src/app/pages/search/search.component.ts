@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
 	constructor(private route: ActivatedRoute) { }
 
 	searchTerm: string = '';
+	data: Walk[] = [];
 
 	ngOnInit(): void {
 		this.route.queryParams.subscribe(params => {
@@ -30,7 +31,7 @@ export class SearchComponent implements OnInit {
 				duration: duration
 			}, null, 1);
 
-			Walk.fetchFilter(search, difficulty, terrain, accessibility, duration).then(console.log);
+			Walk.fetchFilter(search, difficulty, terrain, accessibility, duration).then(walks => {this.data = walks});
 		})
 	}
 }
