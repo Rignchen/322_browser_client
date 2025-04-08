@@ -51,6 +51,13 @@ export default class Walk {
     // Fetch the data from the API
     let data = await fetch(`${env.API_URL}/walks${query}`)
       .then((response) => response.json())
+      .then((data) => {
+        data = data.map((walk: any) => {
+          walk.map_url = "https://www.google.com/maps/embed?" + walk.map_url;
+          return walk;
+        });
+        return data;
+      });
 
     return data;
   }
