@@ -81,7 +81,8 @@ export default class Walk {
 		// Filter the accessibility array to only include those that have at least one of the selected values
 		if (accessibility.length > 0) {
 			data = data.filter((walk: any) => {
-				return walk.accessibility.some((a: string) => accessibility.includes(a));
+				// only those that have all of the selected values
+				return accessibility.every((a) => walk.accessibility.includes(a));
 			});
 		}
 
