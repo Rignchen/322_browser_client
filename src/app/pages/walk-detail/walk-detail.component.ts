@@ -21,7 +21,7 @@ export class WalkDetailComponent {
 			if (!/^\d+$/.test(id)) {
 				throw new Error('Invalid id');
 			}
-			this.walk.fromID(parseInt(id));
+			this.walk.fetchFromID(parseInt(id));
 		});
 	}
 }

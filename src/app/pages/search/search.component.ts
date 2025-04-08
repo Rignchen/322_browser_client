@@ -1,3 +1,4 @@
+import Walk from '#types/walk.js';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -17,6 +18,8 @@ export class SearchComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       const searchTerm = params['s'] || '';
       this.searchTerm = searchTerm;
+
+      Walk.fetchFilter(searchTerm, [], [], []).then(console.log);
     });
   }
 }

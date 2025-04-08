@@ -1,6 +1,6 @@
 import env from './env';
 
-export default class {
+export default class Walk {
 	id: number = 0;
 	name: string = '';
 	image_url: string = '';
@@ -27,7 +27,7 @@ export default class {
 				this.difficulty = data.difficulty;
 	}
 
-	fromID(id: number) {
+	fetchFromID(id: number) {
 		fetch(`${env.API_URL}/walks?id=${id}`)
 			.then((response) => response.json())
 			.then((data) => {
@@ -36,4 +36,22 @@ export default class {
 				this.fromObject(data);
 			});
 	}
+
+  static async fetchFilter(name: string|null, difficulty: string[], terrain: string[], accessibility: string[]) {
+    let args: string[] = [];
+    // Filter the arguments to only include those that are not null or empty
+    if (name) args.push(`name_like=${name}`);
+
+    // Construct the query string from the arguments
+    let query = args.join('&');
+    if (query.length > 0) query = '?' + query;
+
+    console.log(`Fetching walks with query: ${query}`);
+
+    // Fetch the data from the API
+    let data = await fetch(`${env.API_URL}/walks${query}`)
+      .then((response) => response.json())
+
+    return data;
+  }
 }
