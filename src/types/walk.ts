@@ -44,6 +44,7 @@ export default class Walk {
 		if (name) args.push(`name_like=${name}`);
 		if (difficulty.length > 0) args.push(difficulty.map((d) => `difficulty[]=${d}`).join('&'));
 		if (terrain.length > 0) args.push(terrain.map((t) => `terrain[]=${t}`).join('&'));
+		// accessibility is return as a string array by the API, I don't know how to tell the api "should include"
 
 		// Construct the query string from the arguments
 		let query = args.join('&');
@@ -61,6 +62,13 @@ export default class Walk {
 				});
 				return data;
 			});
+
+		// Filter the accessibility array to only include those that have at least one of the selected values
+		if (accessibility.length > 0) {
+			data = data.filter((walk: any) => {
+				return walk.accessibility.some((a: string) => accessibility.includes(a));
+			});
+		}
 
 		return data;
 	}

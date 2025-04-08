@@ -24,10 +24,16 @@ export class SearchComponent implements OnInit {
 				// "Intermediate",
 				// "Advanced",
 			], [
-				"Forest",
+				// "Forest",
 				// "Mountain",
-				"Lake",
-			], [])
+				// "Lake",
+			], [
+				"Children",
+				// "Dog-friendly",
+				// "Cycling",
+				"Wealchair",
+				// "Accessible in winter",
+			])
 				.then(console.log);
 		});
 	}
