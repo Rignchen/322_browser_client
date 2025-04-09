@@ -27,6 +27,8 @@ export class FiltersComponent implements OnInit {
 		"Lake"
 	];
 
+	activeFilters = new Map<string, string[]>();
+
 	ngOnInit(): void {
 		fetch(`${env.API_URL}/filters`)
 			.then(response => response.json())
@@ -38,5 +40,31 @@ export class FiltersComponent implements OnInit {
 				this.difficulties = data.difficulties;
 				this.terrains = data.terrains;
 			})
+	}
+
+	onCheckboxChange(event: Event, filterCategory: string, filterName: string) {
+		console.log("Checkbox changed:", event, filterCategory, filterName);
+		const checkbox = event.target as HTMLInputElement;
+		const isChecked = checkbox.checked;
+
+		// Update the active filters based on the checkbox state
+		const filterValues = this.activeFilters.get(filterCategory) || [];
+		if (isChecked) {
+			filterValues.push(filterName);
+		} else {
+			const index = filterValues.indexOf(filterName);
+			if (index > -1) {
+				filterValues.splice(index, 1);
+			}
+		}
+
+		// Update the active filters map
+		if (filterValues.length > 0) {
+			this.activeFilters.set(filterCategory, filterValues);
+		} else {
+			this.activeFilters.delete(filterCategory);
+		}
+
+		console.log('Active filters:', this.activeFilters);
 	}
 }
