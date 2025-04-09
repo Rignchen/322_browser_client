@@ -1,6 +1,7 @@
 import env from '#types/env.js';
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-filters',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 	styleUrl: './filters.component.scss'
 })
 export class FiltersComponent implements OnInit {
+	constructor(private route: ActivatedRoute) { }
+
 	accessibilities = [
 		"Children",
 		"Dog-friendly",
@@ -26,8 +29,8 @@ export class FiltersComponent implements OnInit {
 		"Mountain",
 		"Lake"
 	];
-
-	activeFilters = new Map<string, string[]>();
+	activeFilters: { [key: string]: string[] } = {};
+	params: { [key: string]: string } = {};
 
 	ngOnInit(): void {
 		fetch(`${env.API_URL}/filters`)
@@ -40,6 +43,7 @@ export class FiltersComponent implements OnInit {
 				this.difficulties = data.difficulties;
 				this.terrains = data.terrains;
 			})
+		this.route.queryParams.subscribe(params => this.params = params);
 	}
 
 	onCheckboxChange(event: Event, filterCategory: string, filterName: string) {
@@ -48,7 +52,7 @@ export class FiltersComponent implements OnInit {
 		const isChecked = checkbox.checked;
 
 		// Update the active filters based on the checkbox state
-		const filterValues = this.activeFilters.get(filterCategory) || [];
+		const filterValues = this.activeFilters[filterCategory] || [];
 		if (isChecked) {
 			filterValues.push(filterName);
 		} else {
@@ -59,21 +63,27 @@ export class FiltersComponent implements OnInit {
 		}
 
 		// Update the active filters map
-		if (filterValues.length > 0) {
-			this.activeFilters.set(filterCategory, filterValues);
-		} else {
-			this.activeFilters.delete(filterCategory);
-		}
+		this.activeFilters[filterCategory] = filterValues;
 
 		// Log the active filters
-		console.log("Active filters:", this.getActiveFilters());
+		this.updateParams()
+		console.log("Active filters:", this.params);
 	}
 
-	getActiveFilters() {
-		const filterStrings: string[] = [];
-		this.activeFilters.forEach((values, key) => {
-			filterStrings.push(`${key}=${values.join(',')}`);
-		});
-		return filterStrings.join('&');
+	updateParams() {
+		console.log("Updating params with active filters:", this.activeFilters);
+		let filters = new Map<string, string>();
+		for (const [key, values] of Object.entries(this.activeFilters)) {
+			filters.set(key, values.join(','));
+		}
+		this.params = {
+			...this.params,
+			...Object.fromEntries(filters)
+		};
+		for (const key in this.params) {
+			if (this.params[key] === '') {
+				delete this.params[key];
+			}
+		}
 	}
 }
