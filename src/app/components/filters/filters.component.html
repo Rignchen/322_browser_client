@@ -1,1 +1,16 @@
-<p>filters {{ json.stringify(filters, null, 1) }}</p>
+<aside>
+	<h1>Accessibilities:</h1>
+	<div *ngFor="let accessibility of accessibilities">
+		<label><input type="checkbox"/> {{ accessibility }}</label>
+	</div>
+
+	<h1>Difficulties:</h1>
+	<div *ngFor="let difficulty of difficulties">
+		<label><input type="checkbox"/> {{ difficulty }}</label>
+	</div>
+
+	<h1>Terrains:</h1>
+	<div *ngFor="let terrain of terrains">
+		<label><input type="checkbox"/> {{ terrain }}</label>
+	</div>
+</aside>
