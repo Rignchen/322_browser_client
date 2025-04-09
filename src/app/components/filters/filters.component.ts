@@ -33,9 +33,9 @@ export class FiltersComponent implements OnInit {
 		fetch(`${env.API_URL}/filters`)
 			.then(response => response.json())
 			.then(data => {
-        if (!data) {
-          throw new Error('No data received');
-        }
+				if (!data) {
+					throw new Error('No data received');
+				}
 				this.accessibilities = data.accessibilities;
 				this.difficulties = data.difficulties;
 				this.terrains = data.terrains;
@@ -65,6 +65,15 @@ export class FiltersComponent implements OnInit {
 			this.activeFilters.delete(filterCategory);
 		}
 
-		console.log('Active filters:', this.activeFilters);
+		// Log the active filters
+		console.log("Active filters:", this.getActiveFilters());
+	}
+
+	getActiveFilters() {
+		const filterStrings: string[] = [];
+		this.activeFilters.forEach((values, key) => {
+			filterStrings.push(`${key}=${values.join(',')}`);
+		});
+		return filterStrings.join('&');
 	}
 }
