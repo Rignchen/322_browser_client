@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input';
-import { RouterLink, Router} from '@angular/router';
+import { RouterLink, Router, ActivatedRoute} from '@angular/router';
 
 @Component({
 	selector: 'app-header',
@@ -9,10 +9,11 @@ import { RouterLink, Router} from '@angular/router';
 	templateUrl: './header.component.html',
 	styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 	// Properties
 	lastPath: string = '';
-	constructor(private router: Router) {}
+	params: { [key: string]: string } = {};
+	constructor(private router: Router, private route: ActivatedRoute) {}
 
 	// Method to handle search input change
 	onKeyUp(event: Event): void {
@@ -26,12 +27,17 @@ export class HeaderComponent {
 		this.redrectSearch(input[0].value, true);
 	}
 
+	ngOnInit(): void {
+		this.route.queryParams.subscribe(params => this.params = params);
+	}
+
 	redrectSearch(search: string, addToHistory: boolean = false): void {
 		if (!search) {
 			this.router.navigate([this.lastPath]);
 			this.lastPath = '';
 		} else {
-			let args = { queryParams: { s: search }, replaceUrl: !addToHistory };
+			this.params = { ...this.params, s: search };
+			let args = { queryParams: this.params, replaceUrl: !addToHistory };
 			if (this.lastPath.length === 0) {
 				this.lastPath = this.router.url;
 				args.replaceUrl = false;
