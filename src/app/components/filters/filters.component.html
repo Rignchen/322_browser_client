@@ -1,4 +1,4 @@
-<aside>
+<div>
 	<h1>Accessibilities:</h1>
 	<div *ngFor="let accessibility of accessibilities">
 		<label><input type="checkbox" (change)="onCheckboxChange($event, 'a', accessibility)" [checked]="activeFilters['a']?.includes(accessibility)"/> {{ accessibility }}</label>
@@ -13,4 +13,4 @@
 	<div *ngFor="let terrain of terrains">
 		<label><input type="checkbox" (change)="onCheckboxChange($event, 't', terrain)" [checked]="activeFilters['t']?.includes(terrain)"/> {{ terrain }}</label>
 	</div>
-</aside>
+</div>
