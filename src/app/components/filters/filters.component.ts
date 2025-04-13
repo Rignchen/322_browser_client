@@ -44,6 +44,12 @@ export class FiltersComponent implements OnInit {
 				this.terrains = data.terrains;
 			})
 		this.route.queryParams.subscribe(params => this.params = params);
+		this.activeFilters = {
+			a: this.params['a'] ? this.params['a'].split(',') : [],
+			d: this.params['d'] ? this.params['d'].split(',') : [],
+			t: this.params['t'] ? this.params['t'].split(',') : []
+		};
+		console.log("Active filters initialized:", this.activeFilters);
 	}
 
 	checkboxStartSelected(filterCategory: string, filterName: string): boolean {
