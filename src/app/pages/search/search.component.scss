@@ -6,4 +6,17 @@ main {
 	margin-left: 25%;
 	padding: 20px;
 	border-left: 1px solid #ccc;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 1rem;
+}
+
+.card {
+	border: 1px solid #ccc;
+	width: 15rem;
+	* {
+		margin: 0;
+	}
 }
