@@ -1,5 +1,12 @@
 <div id="filters">
 	<h1>Filters</h1>
+
+	<h2>Duration:</h2>
+	<mat-slider min="{{ durations[0] }}" max="{{ durations[1] }}">
+		<input matSliderStartThumb value="{{ durations[0] }}"/>
+		<input matSliderEndThumb value="{{ durations[1] }}"/>
+	</mat-slider>
+
 	<h2>Accessibility:</h2>
 	<div *ngFor="let accessibility of accessibilities">
 		<label><input type="checkbox" (change)="onCheckboxChange($event, 'a', accessibility)" [checked]="activeFilters['a']?.includes(accessibility)"/> {{ accessibility }}</label>

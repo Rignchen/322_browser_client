@@ -2,10 +2,11 @@ import env from '#types/env.js';
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import {MatSliderModule} from '@angular/material/slider';
 
 @Component({
 	selector: 'app-filters',
-	imports: [ NgFor ],
+	imports: [ NgFor, MatSliderModule ],
 	templateUrl: './filters.component.html',
 	styleUrl: './filters.component.scss'
 })
@@ -29,6 +30,8 @@ export class FiltersComponent implements OnInit {
 		"Mountain",
 		"Lake"
 	];
+	durations: [number, number] = [1, 6];
+
 	activeFilters: { [key: string]: string[] } = {};
 	params: { [key: string]: string } = {};
 
