@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
 			const difficulty: string[] = params['d']?.split(',') || [];
 			const terrain: string[] = params['t']?.split(',') || [];
 			const accessibility: string[] = params['a']?.split(',') || [];
-			const duration: [number|null, number|null] = [Number(params['min']), Number(params['max'])];
+			const duration: [number|null, number|null] = [Number(params['min']) || null, Number(params['max']) || null];
 
 			this.searchTerm = JSON.stringify({
 				search: search,

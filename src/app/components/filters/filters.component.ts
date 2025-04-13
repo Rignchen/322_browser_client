@@ -67,7 +67,6 @@ export class FiltersComponent implements OnInit {
 
 		// Log the active filters
 		this.updateParams()
-		console.log("Active filters:", this.params);
 		this.router.navigate(['search'], { queryParams: this.params });
 	}
 
