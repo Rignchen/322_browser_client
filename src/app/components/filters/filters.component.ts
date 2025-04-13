@@ -1,7 +1,7 @@
 import env from '#types/env.js';
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-filters',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 	styleUrl: './filters.component.scss'
 })
 export class FiltersComponent implements OnInit {
-	constructor(private route: ActivatedRoute) { }
+	constructor(private route: ActivatedRoute, private router: Router) {}
 
 	accessibilities = [
 		"Children",
@@ -68,6 +68,7 @@ export class FiltersComponent implements OnInit {
 		// Log the active filters
 		this.updateParams()
 		console.log("Active filters:", this.params);
+		this.router.navigate(['search'], { queryParams: this.params });
 	}
 
 	updateParams() {
