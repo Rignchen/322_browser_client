@@ -46,4 +46,19 @@ export default class {
 				return walk;
 			}));
 	}
+
+	/**
+	 * Fetches the filters from the API.
+	 * @returns A promise that resolves to an object containing the filters.
+	 **/
+	static async getFilters(): Promise<any> {
+		return await fetch(`${env.API_URL}/filters`)
+			.then(response => response.json())
+			.then(data => {
+				if (!data) {
+					throw new Error('No data received');
+				}
+				return data;
+			});
+	}
 }

@@ -1,4 +1,4 @@
-import env from '#types/env.js';
+import fetcher from '#types/fetch.js';
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -36,23 +36,19 @@ export class FiltersComponent implements OnInit {
 	params: { [key: string]: string } = {};
 
 	ngOnInit(): void {
-		fetch(`${env.API_URL}/filters`)
-			.then(response => response.json())
-			.then(data => {
-				if (!data) {
-					throw new Error('No data received');
-				}
-				this.accessibilities = data.accessibilities;
-				this.difficulties = data.difficulties;
-				this.terrains = data.terrains;
-			})
 		this.route.queryParams.subscribe(params => this.params = params);
 		this.activeFilters = {
 			a: this.params['a'] ? this.params['a'].split(',') : [],
 			d: this.params['d'] ? this.params['d'].split(',') : [],
 			t: this.params['t'] ? this.params['t'].split(',') : []
 		};
-		console.log("Active filters initialized:", this.activeFilters);
+
+		fetcher.getFilters()
+			.then((data) => {
+				this.accessibilities = data.accessibilities;
+				this.difficulties = data.difficulties;
+				this.terrains = data.terrains;
+			})
 	}
 
 	onCheckboxChange(event: Event, filterCategory: string, filterName: string) {
