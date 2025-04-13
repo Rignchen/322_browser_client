@@ -46,6 +46,12 @@ export class FiltersComponent implements OnInit {
 		this.route.queryParams.subscribe(params => this.params = params);
 	}
 
+	checkboxStartSelected(filterCategory: string, filterName: string): boolean {
+		// Check if the filter is selected based on the params
+		const filterValues = (this.params[filterCategory] || "").split(',');
+		return filterValues.includes(filterName);
+	}
+
 	onCheckboxChange(event: Event, filterCategory: string, filterName: string) {
 		console.log("Checkbox changed:", event, filterCategory, filterName);
 		const checkbox = event.target as HTMLInputElement;

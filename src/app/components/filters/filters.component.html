@@ -1,16 +1,16 @@
 <aside>
 	<h1>Accessibilities:</h1>
 	<div *ngFor="let accessibility of accessibilities">
-		<label><input type="checkbox" (change)="onCheckboxChange($event, 'a', accessibility)"/> {{ accessibility }}</label>
+		<label><input type="checkbox" (change)="onCheckboxChange($event, 'a', accessibility)" [checked]="checkboxStartSelected('a', accessibility)"/> {{ accessibility }}</label>
 	</div>
 
 	<h1>Difficulties:</h1>
 	<div *ngFor="let difficulty of difficulties">
-		<label><input type="checkbox" (change)="onCheckboxChange($event, 'd', difficulty)"/> {{ difficulty }}</label>
+		<label><input type="checkbox" (change)="onCheckboxChange($event, 'd', difficulty)" [checked]="checkboxStartSelected('d', difficulty)"/> {{ difficulty }}</label>
 	</div>
 
 	<h1>Terrains:</h1>
 	<div *ngFor="let terrain of terrains">
-		<label><input type="checkbox" (change)="onCheckboxChange($event, 't', terrain)"/> {{ terrain }}</label>
+		<label><input type="checkbox" (change)="onCheckboxChange($event, 't', terrain)" [checked]="checkboxStartSelected('t', terrain)"/> {{ terrain }}</label>
 	</div>
 </aside>
