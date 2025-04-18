@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterLink,RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-error500',
-  imports: [MatIconModule, RouterLink, RouterOutlet],
+  imports: [MatIconModule, RouterLink],
   templateUrl: './error500.component.html',
   styleUrl: './error500.component.scss'
 })

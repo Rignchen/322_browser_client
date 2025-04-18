@@ -5,7 +5,7 @@
     justify-content: center;
     min-height: 100vh;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     background-color: #fff;
     font-family: 'Segoe UI', sans-serif;
   
@@ -15,32 +15,34 @@
       padding: 30px;
       margin-bottom: 20px;
   
-      .mat-icon-big {
-        font-size: 28px;
+      > .mat-icon-big {
+        font-size: 50px;
         color: #2e7d32;
       }
     }
   
-    .message {
-      font-size: 24px;
-      font-weight: 600;
-      color: #1b1b1b;
-      margin: 0 0 10px;
+    .page-head{
+      margin-bottom: -14px;
     }
-  
-    .description {
-      font-size: 16px;
-      color: #666;
-      margin: 0 0 24px;
+
+    .page-child{
+      margin-bottom: 40px;
     }
+
+    .error-container > p{
+      margin-top: 40px;
+    }
+     .icon > .mat-icon-big{
+      font-size: 100px;
+     }
   
     .button {
-      background-color: #4caf50;
-      color: white;
+      background-color: #8fc792;
+      color: rgb(18, 68, 5);
       text-decoration: none;
       padding: 10px 20px;
       border-radius: 25px;
-      font-weight: 600;
+      font-weight: 150px;
       font-size: 14px;
       transition: background-color 0.3s ease;
       cursor: pointer;
@@ -54,14 +56,6 @@
     @media (max-width: 480px) {
       .icon .mat-icon-big {
         font-size: 36px;
-      }
-  
-      .message {
-        font-size: 20px;
-      }
-  
-      .description {
-        font-size: 14px;
       }
   
       .button {
