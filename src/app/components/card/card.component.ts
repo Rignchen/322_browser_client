@@ -16,7 +16,6 @@ export class CardComponent {
   @Input() image: string = '';
   @Input() distance: number = 0;
   @Input() duration: number = 0;
-  @Input() isExpanded: boolean = false;
 
 
 }
