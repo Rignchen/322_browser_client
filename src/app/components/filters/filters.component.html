@@ -3,8 +3,8 @@
 
 	<h2>Duration:</h2>
 	<mat-slider discrete [min]="durations[0]" [max]="durations[1]">
-		<input matSliderStartThumb value="{{durations[0]}}"/>
-		<input matSliderEndThumb value="{{durations[1]}}"/>
+		<input matSliderStartThumb value="{{durationsFilter[0]}}" (change)="onDurationChange($event, 0)"/>
+		<input matSliderEndThumb value="{{durationsFilter[1]}}" (change)="onDurationChange($event, 1)"/>
 	</mat-slider>
 
 	<h2>Accessibility:</h2>
