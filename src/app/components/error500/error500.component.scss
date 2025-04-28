@@ -7,17 +7,24 @@
     min-height: 100vh;
     padding: 20px;
     background-color: #ffffff;
-    font-family: 'Segoe UI', sans-serif;
   
     .icon {
-      background-color: #ffeaea;
+      background-color: #ffbfbf;
       border-radius: 50%;
-      padding: 30px;
-      margin-bottom: 20px;
+      display: flex;
+      width: 100px;
+      height: 100px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
   
-      .mat-icon-big {
-        font-size: 23px;
-        color: #e53935;
+      .svg {
+        font-size: 50px;
+        color: #ff0e0e;
+        font-size: 3rem;
+        width: 60px; 
+        height: 60px; 
+        padding-top: 0.8rem;
       }
     }
   
