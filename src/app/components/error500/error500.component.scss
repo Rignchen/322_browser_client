@@ -1,0 +1,79 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #ffffff;
+  
+    .icon {
+      background-color: #ffbfbf;
+      border-radius: 50%;
+      display: flex;
+      width: 100px;
+      height: 100px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+  
+      .svg {
+        font-size: 50px;
+        color: #ff0e0e;
+        font-size: 3rem;
+        width: 60px; 
+        height: 60px; 
+        padding-top: 0.8rem;
+      }
+    }
+  
+    .message {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1b1b1b;
+      margin: 0 0 10px;
+    }
+  
+    .description {
+      font-size: 16px;
+      color: #444;
+      margin: 0 0 24px;
+      max-width: 90%;
+    }
+  
+    .button {
+      background-color: #8fc792;
+      color: rgb(18, 68, 5);
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #388e3c;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .mat-icon-big {
+        font-size: 20px;
+      }
+  
+      .message {
+        font-size: 20px;
+      }
+  
+      .description {
+        font-size: 14px;
+      }
+  
+      .button {
+        font-size: 13px;
+        padding: 10px 20px;
+      }
+    }
+  }
+  
