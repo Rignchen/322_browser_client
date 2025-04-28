@@ -7,7 +7,7 @@ export default class Walk {
 	image_url: string = '';
 	map_url: string = '';
 	description: string = '';
-	duration: string = '';
+	duration: number = 0;
 	distance_km: number = 0;
 	elevation_gain_m: number = 0;
 	terrain: string = '';

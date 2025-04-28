@@ -2,11 +2,13 @@
 	<app-filters/>
 </aside>
 <main>
-	<a [routerLink]="['/walk', item.id]" *ngFor="let item of data" class="card">
-		<img [src]="item.image_url" alt="image of {{ item.name }}" width="100%"/>
-		<h2>{{ item.name }}</h2>
-		<p>{{ item.description.substring(0, 100) }}...</p>
-		<p>Distance: {{ item.distance_km }} km</p>
-		<p>Duration: {{ item.duration }}</p>
-	</a>
+	<app-card
+		*ngFor="let item of data"
+		[title]="item.name"
+		[content]="item.description"
+		[image]="item.image_url"
+		[distance]="item.distance_km"
+		[duration]="item.duration"
+		[id]="item.id"
+	/>
 </main>

@@ -1,3 +1,4 @@
+import { CardComponent } from '#components/card/card.component.js';
 import { FiltersComponent } from '#components/filters/filters.component.js';
 import Walk from '#types/walk.js';
 import { NgFor } from '@angular/common';
@@ -6,7 +7,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-search',
-	imports: [ NgFor, FiltersComponent, RouterLink ],
+	imports: [ NgFor, FiltersComponent, CardComponent ],
 	templateUrl: './search.component.html',
 	styleUrl: './search.component.scss'
 })
