@@ -48,7 +48,7 @@ export class FiltersComponent implements OnInit {
 				this.accessibilities = data.accessibilities;
 				this.difficulties = data.difficulties;
 				this.terrains = data.terrains;
-				this.durations = data.durations;
+				this.durations = [data.durations['min'], data.durations['max']];
 			})
 	}
 
