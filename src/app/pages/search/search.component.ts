@@ -3,7 +3,7 @@ import { FiltersComponent } from '#components/filters/filters.component.js';
 import Walk from '#types/walk.js';
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 	selector: 'app-search',
@@ -13,7 +13,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 })
 
 export class SearchComponent implements OnInit {
-	constructor(private route: ActivatedRoute) { }
+	constructor(private route: ActivatedRoute, public router: Router) {}
 
 	searchTerm: string = '';
 	data: Walk[] = [];

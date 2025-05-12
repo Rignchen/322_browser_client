@@ -9,6 +9,6 @@
 		[image]="item.image_url"
 		[distance]="item.distance_km"
 		[duration]="item.duration"
-		[id]="item.id"
+		(click)="router.navigate(['/walk', item.id])"
 	/>
 </main>
