@@ -1,1 +1,14 @@
-<p>search: {{ searchTerm }}</p>
+<aside>
+	<app-filters/>
+</aside>
+<main>
+	<app-card
+		*ngFor="let item of data"
+		[title]="item.name"
+		[content]="item.description"
+		[image]="item.image_url"
+		[distance]="item.distance_km"
+		[duration]="item.duration"
+		(click)="router.navigate(['/walk', item.id])"
+	/>
+</main>
