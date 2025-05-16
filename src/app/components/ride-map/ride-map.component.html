@@ -1,5 +1,21 @@
 <mat-card class="ride-map-card">
-  <img [src]="imageSrc" alt="Carte de la balade" class="ride-map-image" />
+<google-map
+  height="400px"
+  width="100%"
+  [center]="center"
+  [zoom]="zoom"
+>
+  <map-polyline
+    [path]="path"
+    [options]="{
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    }"
+  ></map-polyline>
+</google-map>
+
+
 </mat-card>
 
 <div class="ride-map-link">

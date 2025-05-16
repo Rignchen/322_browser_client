@@ -11,6 +11,7 @@ export default class Walk {
 	distance_km: number = 0;
 	elevation_gain_m: number = 0;
 	terrain: string = '';
+	path: {lat: number, lng: number}[] = [];
 	accessibility: string[] = [];
 	difficulty: string = '';
 
@@ -25,6 +26,7 @@ export default class Walk {
 				this.elevation_gain_m = data.elevation_gain_m;
 				this.terrain = data.terrain;
 				this.accessibility = data.accessibility;
+				this.path = data.path;
 				this.difficulty = data.difficulty;
 				return this;
 	}
