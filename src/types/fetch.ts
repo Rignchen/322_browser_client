@@ -11,6 +11,18 @@ export default class {
 			});
 	}
 
+	static async getWalks(): Promise<any[]> {
+		return await fetch(`${env.API_URL}/walks`)
+			.then((response) => response.json())
+			.then((data) => {
+				data = data.map((walk: any) => {
+					walk.map_url = "https://www.google.com/maps/embed?" + walk.map_url;
+					return walk;
+				});
+				return data;
+			});
+	}
+
 	/**
 	 * Fetches a list of walks from the API with optional filters.
 	 * @param name The name of the walk, detected like %name%
