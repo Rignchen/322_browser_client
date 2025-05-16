@@ -1,0 +1,159 @@
+:host {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+}
+
+.home-container {
+  max-width: 100%;
+  padding: 12px;
+}
+
+.discover-banner {
+  background-image: url('/camping-view.jpeg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 22px;
+  height: 124px;
+  padding: 20px;
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  h1, p {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+}
+
+.section-container {
+  padding: 0 16px;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: #333;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.category-card {
+  display: flex;
+  align-items: center;
+  background-color: #E6F0E6;
+  border-radius: 22px;
+  padding: 16px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #c2dac2;
+  }
+}
+
+.category-icon {
+  margin-right: 12px;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.category-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  flex-grow: 1;
+}
+
+.arrow-icon {
+  color: #666;
+  opacity: 0.5;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.featured-walks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.view-more-button {
+  background-color: #008C72 !important;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  font-family: Roboto;
+  
+  &:hover {
+    background-color: #007a61;
+  }
+}
+
+.hide-mobile {
+  display: none;
+  
+  @media (min-width: 768px) {
+    display: block;
+  }
+}
