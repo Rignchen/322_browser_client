@@ -69,4 +69,20 @@ export default class Walk {
 
 		return data;
 	}
+
+	/*
+	 * Fetches a list of featured walks
+	 */
+	static async fetchFeatured() {
+		let data = await fetcher.getWalks()
+			.then((data) => {
+				data = data.map((walk: any) => {
+					return (new Walk).fromObject(walk);
+				});
+				return data;
+			}
+			);
+		data = data.slice(0, 3);
+		return data;
+	}
 }
