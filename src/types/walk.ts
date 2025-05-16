@@ -5,7 +5,6 @@ export default class Walk {
 	id: number = 0;
 	name: string = '';
 	image_url: string = '';
-	map_url: string = '';
 	description: string = '';
 	duration: number = 0;
 	distance_km: number = 0;
@@ -14,12 +13,12 @@ export default class Walk {
 	path: {lat: number, lng: number}[] = [];
 	accessibility: string[] = [];
 	difficulty: string = '';
+	map_link: string = '';
 
 	fromObject(data: any) {
 				this.id = data.id;
 				this.name = data.name;
 				this.image_url = data.image_url;
-				this.map_url = data.map_url;
 				this.description = data.description;
 				this.duration = data.duration;
 				this.distance_km = data.distance_km;
@@ -28,6 +27,7 @@ export default class Walk {
 				this.accessibility = data.accessibility;
 				this.path = data.path;
 				this.difficulty = data.difficulty;
+				this.map_link = data.map_link;
 				return this;
 	}
 
