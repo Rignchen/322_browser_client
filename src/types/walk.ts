@@ -74,7 +74,7 @@ export default class Walk {
 	 * Fetches a list of featured walks
 	 */
 	static async fetchFeatured() {
-		let data = await fetcher.getWalks()
+		let data = await fetcher.getWalkFiltered(null, [], [], [null, null])
 			.then((data) => {
 				data = data.map((walk: any) => {
 					return (new Walk).fromObject(walk);
