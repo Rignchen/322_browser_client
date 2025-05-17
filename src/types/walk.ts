@@ -80,8 +80,7 @@ export default class Walk {
 					return (new Walk).fromObject(walk);
 				});
 				return data;
-			}
-			);
+			});
 		data = data.slice(0, 3);
 		return data;
 	}
