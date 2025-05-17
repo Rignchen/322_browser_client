@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     // Initialize categories with router
     this.categories = [
       new Category('Montagne', 'terrain', '/search', { t: 'Mountain' }),
-      new Category('Été', 'wb_sunny', '/search', { s: 'Summer' }),
+      new Category('Été', 'wb_sunny', '/search', { a: 'Summer' }),
       new Category('Court (< 2h)', 'schedule', '/search', { max: '2' }),
       new Category('Débutant', 'accessibility_new', '/search', {
         d: 'Beginner',
