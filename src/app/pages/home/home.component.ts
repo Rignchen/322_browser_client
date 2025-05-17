@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
       name: 'Été',
       icon: 'wb_sunny',
       route: '/search',
-      params: { s: 'summer' },
+      params: { s: 'Summer' },
     },
     {
       name: 'Court (< 2h)',
