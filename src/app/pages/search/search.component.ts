@@ -15,7 +15,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchComponent implements OnInit {
 	constructor(private route: ActivatedRoute, public router: Router) {}
 
-	searchTerm: string = '';
 	data: Walk[] = [];
 
 	ngOnInit(): void {
@@ -25,14 +24,6 @@ export class SearchComponent implements OnInit {
 			const terrain: string[] = params['t']?.split(',') || [];
 			const accessibility: string[] = params['a']?.split(',') || [];
 			const duration: [number|null, number|null] = [Number(params['min']) || null, Number(params['max']) || null];
-
-			this.searchTerm = JSON.stringify({
-				search: search,
-				difficulty: difficulty,
-				terrain: terrain,
-				accessibility: accessibility,
-				duration: duration
-			}, null, 1);
 
 			Walk.fetchFilter(search, difficulty, terrain, accessibility, duration).then(walks => {this.data = walks});
 		})
