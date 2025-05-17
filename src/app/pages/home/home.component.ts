@@ -14,45 +14,28 @@ import Category from '#types/category.js';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  categories: Category[] = [
-    {
-      name: 'Montagne',
-      icon: 'terrain',
-      route: '/search',
-      params: { t: 'Mountain' },
-    },
-    {
-      name: 'Été',
-      icon: 'wb_sunny',
-      route: '/search',
-      params: { s: 'Summer' },
-    },
-    {
-      name: 'Court (< 2h)',
-      icon: 'schedule',
-      route: '/search',
-      params: { max: '2' },
-    },
-    {
-      name: 'Débutant',
-      icon: 'accessibility_new',
-      route: '/search',
-      params: { d: 'Beginner' },
-    },
-  ];
-
+  categories: Category[] = [];
   featuredWalks: Walk[] = [];
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) {
+    // Initialize categories with router
+    this.categories = [
+      new Category('Montagne', 'terrain', '/search', { t: 'Mountain' }),
+      new Category('Été', 'wb_sunny', '/search', { s: 'Summer' }),
+      new Category('Court (< 2h)', 'schedule', '/search', { max: '2' }),
+      new Category('Débutant', 'accessibility_new', '/search', {
+        d: 'Beginner',
+      }),
+    ];
+
+    // Set router for each category
+    this.categories.forEach((category) => category.setRouter(this.router));
+  }
 
   ngOnInit(): void {
     Walk.fetchFeatured().then((walks) => {
       this.featuredWalks = walks;
     });
-  }
-
-  navigateToCategory(category: Category): void {
-    this.router.navigate([category.route], { queryParams: category.params });
   }
 
   navigateToWalk(walkId: number): void {
