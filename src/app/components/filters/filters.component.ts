@@ -20,7 +20,7 @@ export class FiltersComponent implements OnInit {
 		"Children",
 		"Dog-friendly",
 		"Cycling",
-		"Weelchair",
+		"Wheelchair",
 		"Accessible in winter"
 	];
 	difficulties = [
