@@ -42,9 +42,6 @@ export class HomeComponent implements OnInit {
   ];
 
   featuredWalks: Walk[] = [];
-  magazineTitle: string = 'Découvrez Passer Simple';
-  magazineDescription: string =
-    "Le magazine qui fait revivre l'histoire romande";
 
   constructor(public router: Router) {}
 
