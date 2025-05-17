@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CardComponent } from '#components/card/card.component.js';
 import { MatButtonModule } from '@angular/material/button';
 import Walk from '#types/walk.js';
+import Category from '#types/category.js';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import Walk from '#types/walk.js';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  categories = [
+  categories: Category[] = [
     {
       name: 'Montagne',
       icon: 'terrain',
@@ -53,7 +54,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  navigateToCategory(category: any): void {
+  navigateToCategory(category: Category): void {
     this.router.navigate([category.route], { queryParams: category.params });
   }
 
