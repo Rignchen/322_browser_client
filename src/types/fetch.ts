@@ -1,5 +1,4 @@
 import env from './env';
-import Walk from './walk';
 
 export default class {
 	static async getWalkFromId(id: number): Promise<any> {
