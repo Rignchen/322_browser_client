@@ -37,7 +37,7 @@
   z-index: 1;
 }
 
-.discover-banner h1, 
+.discover-banner h1,
 .discover-banner p {
   position: relative;
   z-index: 2;
@@ -146,11 +146,11 @@
   .section-title {
     font-size: 24px;
   }
-  
+
   .categories-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .featured-walks {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -176,7 +176,7 @@
   .section-container.featured-walks-section {
     order: 1;
   }
-  
+
   .section-container:nth-child(3) {
     order: 2;
   }
