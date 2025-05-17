@@ -1,0 +1,25 @@
+<mat-card class="ride-map-card">
+<google-map
+  height="400px"
+  width="100%"
+  [center]="center"
+  [zoom]="zoom"
+>
+  <map-polyline
+    [path]="path"
+    [options]="{
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    }"
+  ></map-polyline>
+</google-map>
+
+
+</mat-card>
+
+<div class="ride-map-link">
+  <a [href]="mapLink" target="_blank" rel="noopener noreferrer">
+    Ouvrir dans Maps
+  </a>
+</div>

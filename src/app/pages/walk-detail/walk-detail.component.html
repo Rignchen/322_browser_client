@@ -40,10 +40,12 @@
     </div>
   </div>
 
-  <div class="computer">
-    <iframe src="{{walk.map_url}}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="center"></iframe>
-    <a href="{{walk.map_url}}" class="center">Ouvrir dans Maps</a>
-  </div>
+<app-ride-map
+  [center]="walk.path[0]"
+  [zoom]="14"
+  [path]="walk.path"
+  [mapLink]="walk.map_link"
+></app-ride-map>
 
   <app-discover-magazine
       title="Vous voulez plus de détails ?"

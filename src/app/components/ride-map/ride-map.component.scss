@@ -1,0 +1,26 @@
+.ride-map-card {
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 561px;
+  max-height: 306px;
+  margin: auto;
+  padding: 0;
+}
+
+.ride-map-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.ride-map-link {
+  margin-top: 12px;
+  text-align: center;
+
+  a {
+    color: #007b5e;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 10px;
+  }
+}

@@ -4,10 +4,11 @@ import Walk from '#types/walk.js';
 import { BackButtonComponent } from '#components/back-button/back-button.component.js';
 import { DiscoverMagazineComponent } from '#components/discover-magazine/discover-magazine.component.js';
 import { MatIconModule } from '@angular/material/icon';
+import { RideMapComponent } from '#components/ride-map/ride-map.component.js';
 
 @Component({
 	selector: 'app-walk-detail',
-	imports: [BackButtonComponent, MatIconModule, DiscoverMagazineComponent],
+	imports: [BackButtonComponent, MatIconModule, DiscoverMagazineComponent, RideMapComponent],
 	templateUrl: './walk-detail.component.html',
 	styleUrl: './walk-detail.component.scss'
 })
