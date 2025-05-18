@@ -10,11 +10,38 @@ div#header {
 
 div#search_bar {
 	width: 100%;
+	position: relative;
+	
 	button {
-		margin-left: -3rem;
+		position: absolute;
+		right: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
+		padding: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		mat-icon {
+			color: #008C72;
+		}
+	}
+
+	.filter-button {
+		display: none;
+	}
+	
+	@media (max-width: 768px) {
+		.hidden-on-search-mobile.search-button {
+			display: none;
+		}
+		
+		.visible-on-search-mobile.filter-button {
+			display: flex;
+		}
 	}
 
 	input {
