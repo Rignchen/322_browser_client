@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink, Router, ActivatedRoute} from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FilterDrawerComponent } from '#components/filter-drawer/filter-drawer.component.js';
 
 @Component({
 	selector: 'app-header',
-	imports: [RouterLink, MatIconModule, MatInputModule],
+	imports: [RouterLink, MatIconModule, MatInputModule, FilterDrawerComponent, CommonModule],
 	templateUrl: './header.component.html',
 	styleUrl: './header.component.scss'
 })
@@ -13,6 +15,11 @@ export class HeaderComponent implements OnInit {
 	// Properties
 	lastPath: string = '';
 	params: { [key: string]: string } = {};
+	isSearchPage: boolean = false;
+
+	// Reference to the filter drawer component to control it from header
+	@ViewChild(FilterDrawerComponent) filterDrawer!: FilterDrawerComponent;
+
 	constructor(private router: Router, private route: ActivatedRoute) {}
 
 	// Method to handle search input change
@@ -27,8 +34,18 @@ export class HeaderComponent implements OnInit {
 		this.redirectSearch(input[0].value, true);
 	}
 
+	onFilterButtonClick(): void {
+		this.filterDrawer.toggleDrawer();
+	}
+
 	ngOnInit(): void {
+		// Subscribe to query parameters to get the search term
 		this.route.queryParams.subscribe(params => this.params = params);
+
+		// Check if the current route is the search page
+		this.router.events.subscribe(() => {
+			this.isSearchPage = this.router.url.includes('/search');
+		});
 	}
 
 	redirectSearch(search: string, addToHistory: boolean = false): void {

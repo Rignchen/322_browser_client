@@ -1,0 +1,12 @@
+<div class="overlay" *ngIf="isOpen" (click)="closeDrawer()"></div>
+
+<div class="drawer" [class.open]="isOpen">
+    <div class="drawer-header">
+        <button mat-icon-button (click)="closeDrawer()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div class="drawer-content">
+        <app-filters></app-filters>
+    </div>
+</div>
