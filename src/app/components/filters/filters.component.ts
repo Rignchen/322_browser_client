@@ -69,7 +69,6 @@ export class FiltersComponent implements OnInit {
 	}
 
 	onCheckboxChange(event: Event, filterCategory: string, filterName: string) {
-		console.log("Checkbox changed:", event, filterCategory, filterName);
 		const checkbox = event.target as HTMLInputElement;
 		const isChecked = checkbox.checked;
 
@@ -93,7 +92,6 @@ export class FiltersComponent implements OnInit {
 	}
 
 	updateParamsFilters() {
-		console.log("Updating params with active filters:", this.activeFilters);
 		let filters = new Map<string, string>();
 		for (const [key, values] of Object.entries(this.activeFilters)) {
 			filters.set(key, values.join(','));
@@ -110,7 +108,6 @@ export class FiltersComponent implements OnInit {
 	}
 
 	updateParamsDuration(index: number) {
-		console.log("Updating params with duration:", this.durationsFilter);
 		const key = ['min', 'max'][index];
 		const temp: { [key: string]: string } = {};
 		temp[key] = this.durationsFilter[index].toString();
