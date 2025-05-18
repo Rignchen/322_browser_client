@@ -14,10 +14,4 @@ export class RideMapComponent {
   @Input() zoom: number = 14;                      // Zoom (optionnel)
   @Input() path!: google.maps.LatLngLiteral[];
   @Input() mapLink!: string;  // Tracé de la polyline
-
-  polylineOptions = {
-    strokeColor: '#FF0000',
-    strokeOpacity: 1.0,
-    strokeWeight: 3,
-  };
 }
