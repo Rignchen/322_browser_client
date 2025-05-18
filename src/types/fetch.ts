@@ -6,7 +6,6 @@ export default class {
 			.then((response) => response.json())
 			.then((data) => {
 				data = data[0];
-				data.map_url = "https://www.google.com/maps/embed?" + data.map_url;
 				return data;
 			});
 	}
@@ -42,7 +41,6 @@ export default class {
 		return await fetch(`${env.API_URL}/walks${query}`)
 			.then((response) => response.json())
 			.then((data) => data.map((walk: any) => {
-				walk.map_url = "https://www.google.com/maps/embed?" + walk.map_url;
 				return walk;
 			}));
 	}
