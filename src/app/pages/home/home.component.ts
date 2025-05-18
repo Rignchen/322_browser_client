@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CardComponent } from '#components/card/card.component.js';
 import { MatButtonModule } from '@angular/material/button';
 import Walk from '#types/walk.js';
@@ -9,7 +9,7 @@ import Category from '#types/category.js';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, MatIconModule, CardComponent, MatButtonModule],
+  imports: [CommonModule, MatIconModule, CardComponent, MatButtonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
