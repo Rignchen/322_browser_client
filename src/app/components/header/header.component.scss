@@ -11,7 +11,7 @@ div#header {
 div#search_bar {
 	width: 100%;
 	position: relative;
-	
+
 	button {
 		margin-left: -3rem;
 		background-color: transparent;
@@ -19,21 +19,6 @@ div#search_bar {
 		cursor: pointer;
 		mat-icon {
 			color: #008C72;
-		}
-	}
-  
-  /* Filter button hidden by default, shown only on mobile search page */
-	.filter-button {
-		display: none;
-	}
-	
-	@media (max-width: 768px) {
-		.hidden-on-search-mobile.search-button {
-			display: none;
-		}
-		
-		.visible-on-search-mobile.filter-button {
-			display: flex;
 		}
 	}
 
@@ -76,5 +61,16 @@ div#search_bar {
 
 	@media (max-width: 768px) {
 		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.hidden-on-mobile {
+		display: none !important;
+	}
+}
+@media (min-width: 769px) {
+	.hidden-on-computer {
+		display: none !important;
 	}
 }

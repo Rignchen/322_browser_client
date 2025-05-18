@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
 	// Reference to the filter drawer component to control it from header
 	@ViewChild(FilterDrawerComponent) filterDrawer!: FilterDrawerComponent;
-	
+
 	constructor(private router: Router, private route: ActivatedRoute) {}
 
 	// Method to handle search input change
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
 		if (this.lastPath.length === 0) return;
 		this.redrectSearch(input[0].value, true);
 	}
-	
+
 	onFilterButtonClick(): void {
 		this.filterDrawer.toggleDrawer();
 	}
@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
 	ngOnInit(): void {
 		// Subscribe to query parameters to get the search term
 		this.route.queryParams.subscribe(params => this.params = params);
-		
+
 		// Check if the current route is the search page
 		this.router.events.subscribe(() => {
 			this.isSearchPage = this.router.url.includes('/search');
