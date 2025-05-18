@@ -1,70 +1,111 @@
-# Ps
+# Passer Simple
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+Ce projet est composé de
 
-## Environment Setup
+- [**Frontend**](https://github.com/Rignchen/322_browser_client) : Angular app (interface utilisateur)
+- [**Backend**](https://github.com/Rignchen/322_browser_server) : Serveur JSON simulant une API REST pour les données de marche
 
-First thing to do is fill the environment file with the correct values.\
-The file is stored in `src/types/.env.ts`
+---
 
-```sh
-cp src/types/.env.example.ts src/types/.env.ts
+## Prérequis
+
+Avant de commencer, il vous faudra installer
+- [Node.js (version recommandée ≥ 16.x)](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli) :
+  ```bash
+  npm install -g @angular/cli
+  ```
+
+---
+
+## Installation Backend (json-server)
+
+1. Récupérer le projet :
+```bash
+git clone https://github.com/Rignchen/322_browser_server.git
+cd 322_browser_server
 ```
 
-Then, fill the file with the correct values.
+2. Installer les dépendances :
+```bash
+npm install
+```
 
-## Development server
+3. Lancer le serveur :
+```bash
+npm start
+```
 
-To start a local development server, run:
+Le backend sera accessible sur :
+[http://localhost:3000](http://localhost:3000)
+
+Les endpoints disponibles sont indiqués dans la console au démarrage du serveur:
+```bash
+  \{^_^}/ hi!
+
+  Loading json-server data
+  Done
+
+  Resources
+  http://localhost:3000/filters
+  http://localhost:3000/walks
+
+  Home
+  http://localhost:3000
+```
+
+---
+
+## Installation Frontend (Angular)
+
+1. Récupérer le projet :
+```bash
+git clone https://github.com/Rignchen/322_browser_client.git
+cd 322_browser_client
+```
+
+2. Installer les dépendances :
+```bash
+npm install
+```
+
+3. Configurer l’environnement :
+```bash
+cp src/types/.env.example.ts src/types/.env.ts
+$EDITOR src/types/.env.ts
+```
+
+Puis éditer `src/types/env.ts` avec le contenu suivant :
+
+```ts
+export default class {
+	public static API_URL: string = 'http://localhost:3000';
+	public static GMAP_API_KEY: string = 'YOUR_GMAP_API_KEY';
+}
+```
+
+4. Lancer le serveur Angular :
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Le frontend sera disponible sur :
+[http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Résumé
 
-```bash
-ng generate component component-name
-```
+| Composant | Commande    | URL                   |
+| --------- | ----------- | --------------------- |
+| Backend   | `npm start` | http://localhost:3000 |
+| Frontend  | `ng serve`  | http://localhost:4200 |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Ressources utiles
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular CLI Documentation](https://angular.io/cli)
+- [json-server GitHub](https://github.com/typicode/json-server)
+- [Créer une clé API Google Maps](https://developers.google.com/maps/documentation/javascript/get-api-key)
