@@ -16,7 +16,8 @@ export class HeaderComponent implements OnInit {
 	lastPath: string = '';
 	params: { [key: string]: string } = {};
 	isSearchPage: boolean = false;
-	
+
+	// Reference to the filter drawer component to control it from header
 	@ViewChild(FilterDrawerComponent) filterDrawer!: FilterDrawerComponent;
 	
 	constructor(private router: Router, private route: ActivatedRoute) {}
@@ -38,8 +39,10 @@ export class HeaderComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		// Subscribe to query parameters to get the search term
 		this.route.queryParams.subscribe(params => this.params = params);
 		
+		// Check if the current route is the search page
 		this.router.events.subscribe(() => {
 			this.isSearchPage = this.router.url.includes('/search');
 		});
