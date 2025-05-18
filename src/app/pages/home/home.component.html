@@ -7,7 +7,7 @@
     <div class="section-container featured-walks-section">
         <h2 class="section-title">Randonnées en vedette</h2>
         <div class="featured-walks">
-            <app-card *ngFor="let walk of featuredWalks" [title]="walk.name" [content]="walk.description"
+            <app-card class="card" *ngFor="let walk of featuredWalks" [title]="walk.name" [content]="walk.description"
                 [image]="walk.image_url" [distance]="walk.distance_km" [duration]="walk.duration"
                 (click)="navigateToWalk(walk.id)">
             </app-card>
