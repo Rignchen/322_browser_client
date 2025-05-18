@@ -1,70 +1,121 @@
-# Ps
+# Passer Simple
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+Ce projet est composé de
 
-## Environment Setup
+- **Frontend** : Angular app (interface utilisateur)
+- **Backend** : Serveur JSON simulant une API REST pour les données de marche
 
-First thing to do is fill the environment file with the correct values.\
-The file is stored in `src/types/.env.ts`
+---
 
-```sh
+## Prérequis
+
+Assurez-vous d'avoir installé :
+
+- [Node.js (version recommandée ≥ 16.x)](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli) :
+  ```bash
+  npm install -g @angular/cli
+  ```
+
+---
+
+##  Dépôts GitHub
+
+- Frontend : [https://github.com/Rignchen/322_browser_client](https://github.com/Rignchen/322_browser_client)
+- Backend : [https://github.com/Rignchen/322_browser_server](https://github.com/Rignchen/322_browser_server)
+
+---
+
+## Structure du projet
+
+```
+ client       ← Frontend Angular
+ server       ← Backend JSON Server (fake API)
+```
+
+---
+
+## Installation Backend (json-server)
+
+### 1. Ouvrir un terminal et se déplacer dans le dossier :
+
+```bash
+cd 322_browser/server
+```
+
+### 2. Installer les dépendances :
+
+```bash
+npm install
+```
+
+### 3. Lancer le serveur :
+
+```bash
+npm start
+```
+
+Le backend sera accessible sur :  
+[http://localhost:3000](http://localhost:3000)
+
+### Endpoints disponibles :
+
+- `GET /walks` – Liste de toutes les promenades
+- `GET /walks/1` – Détails d'une promenade
+
+---
+
+## Installation Frontend (Angular)
+
+### 1. Ouvrir un **nouveau terminal** et se déplacer dans le dossier :
+
+```bash
+cd 322_browser/client
+```
+
+### 2. Installer les dépendances :
+
+```bash
+npm install
+```
+
+### 3. Configurer l’environnement :
+
+```bash
 cp src/types/.env.example.ts src/types/.env.ts
 ```
 
-Then, fill the file with the correct values.
+Puis éditer `src/types/env.ts` avec le contenu suivant :
 
-## Development server
+```ts
+export default class {
+  public static API_URL: string = 'http://localhost:3000';
+  public static GMAP_API_KEY: string = 'YOUR_GMAP_API_KEY';
+}
+```
 
-To start a local development server, run:
+### 4. Lancer le serveur Angular :
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Le frontend sera disponible sur :  
+[http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Résumé
 
-```bash
-ng generate component component-name
-```
+| Composant | Commande    | URL                   |
+| --------- | ----------- | --------------------- |
+| Backend   | `npm start` | http://localhost:3000 |
+| Frontend  | `ng serve`  | http://localhost:4200 |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Ressources utiles
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Angular CLI Documentation](https://angular.io/cli)
+- [json-server GitHub](https://github.com/typicode/json-server)
+- [Créer une clé API Google Maps](https://developers.google.com/maps/documentation/javascript/get-api-key)
