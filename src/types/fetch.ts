@@ -31,7 +31,6 @@ export default class {
 		if (name) args.push(`name_like=${name}`);
 		if (difficulty.length > 0) args.push(difficulty.map((d) => `difficulty[]=${d}`).join('&'));
 		if (terrain.length > 0) args.push(terrain.map((t) => `terrain[]=${t}`).join('&'));
-		// duration.zip("gte", "lte").filter(!isNull).forEach(args.push(`duration_${v.1}=${v.0}`));
 		duration.map((v, i) => [v, ["gte", "lte"][i]]).filter((v) => v[0] !== null).forEach((v) => args.push(`duration_${v[1]}=${v[0]}`));
 
 		// Construct the query string from the arguments
