@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-discover-magazine',
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, RouterLink],
   templateUrl: './discover-magazine.component.html',
   styleUrl: './discover-magazine.component.scss'
 })
