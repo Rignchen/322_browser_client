@@ -2,15 +2,14 @@
 
 Ce projet est composé de
 
-- **Frontend** : Angular app (interface utilisateur)
-- **Backend** : Serveur JSON simulant une API REST pour les données de marche
+- [**Frontend**](https://github.com/Rignchen/322_browser_client) : Angular app (interface utilisateur)
+- [**Backend**](https://github.com/Rignchen/322_browser_server) : Serveur JSON simulant une API REST pour les données de marche
 
 ---
 
 ## Prérequis
 
-Assurez-vous d'avoir installé :
-
+Avant de commencer, il vous faudra installer
 - [Node.js (version recommandée ≥ 16.x)](https://nodejs.org/)
 - [Angular CLI](https://angular.io/cli) :
   ```bash
@@ -19,88 +18,79 @@ Assurez-vous d'avoir installé :
 
 ---
 
-##  Dépôts GitHub
-
-- Frontend : [https://github.com/Rignchen/322_browser_client](https://github.com/Rignchen/322_browser_client)
-- Backend : [https://github.com/Rignchen/322_browser_server](https://github.com/Rignchen/322_browser_server)
-
----
-
-## Structure du projet
-
-```
- client       ← Frontend Angular
- server       ← Backend JSON Server (fake API)
-```
-
----
-
 ## Installation Backend (json-server)
 
-### 1. Ouvrir un terminal et se déplacer dans le dossier :
-
+1. Récupérer le projet :
 ```bash
-cd 322_browser/server
+git clone https://github.com/Rignchen/322_browser_server.git
+cd 322_browser_server
 ```
 
-### 2. Installer les dépendances :
-
+2. Installer les dépendances :
 ```bash
 npm install
 ```
 
-### 3. Lancer le serveur :
-
+3. Lancer le serveur :
 ```bash
 npm start
 ```
 
-Le backend sera accessible sur :  
+Le backend sera accessible sur :
 [http://localhost:3000](http://localhost:3000)
 
-### Endpoints disponibles :
+Les endpoints disponibles sont indiqués dans la console au démarrage du serveur:
+```bash
+  \{^_^}/ hi!
 
-- `GET /walks` – Liste de toutes les promenades
-- `GET /walks/1` – Détails d'une promenade
+  Loading json-server data
+  Done
+
+  Resources
+  http://localhost:3000/filters
+  http://localhost:3000/walks
+
+  Home
+  http://localhost:3000
+```
 
 ---
 
 ## Installation Frontend (Angular)
 
-### 1. Ouvrir un **nouveau terminal** et se déplacer dans le dossier :
-
+1. Récupérer le projet :
 ```bash
-cd 322_browser/client
+git clone https://github.com/Rignchen/322_browser_client.git
+cd 322_browser_client
 ```
 
-### 2. Installer les dépendances :
-
+2. Installer les dépendances :
 ```bash
 npm install
 ```
 
-### 3. Configurer l’environnement :
-
+3. Configurer l’environnement :
 ```bash
 cp src/types/.env.example.ts src/types/.env.ts
+$EDITOR src/types/.env.ts
 ```
 
 Puis éditer `src/types/env.ts` avec le contenu suivant :
 
 ```ts
 export default class {
-  public static API_URL: string = 'http://localhost:3000';
-  public static GMAP_API_KEY: string = 'YOUR_GMAP_API_KEY';
+	public static API_URL: string = 'http://localhost:3000';
+	public static GMAP_API_KEY: string = 'YOUR_GMAP_API_KEY';
 }
 ```
 
-### 4. Lancer le serveur Angular :
+4. Lancer le serveur Angular :
 
 ```bash
 ng serve
 ```
 
-Le frontend sera disponible sur :  
+Le frontend sera disponible sur :
 [http://localhost:4200](http://localhost:4200)
 
 ---
