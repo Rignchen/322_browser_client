@@ -13,23 +13,14 @@ div#search_bar {
 	position: relative;
 	
 	button {
-		position: absolute;
-		right: 1rem;
-		top: 50%;
-		transform: translateY(-50%);
+		margin-left: -3rem;
 		background-color: transparent;
 		border: none;
 		cursor: pointer;
-		padding: 0.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		
 		mat-icon {
 			color: #008C72;
 		}
 	}
-
 	.filter-button {
 		display: none;
 	}
