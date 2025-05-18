@@ -55,6 +55,9 @@
 			font-size: 0.9rem;
 			color: #555;
 			margin: 0 0 10px 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 
 		.ride-info {
