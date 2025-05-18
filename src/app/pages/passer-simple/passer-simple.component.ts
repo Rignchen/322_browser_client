@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-passer-simple',
   imports: [BackButtonComponent, MatIconModule],
   templateUrl: './passer-simple.component.html',
-  styleUrls: ['./passer-simple.component.scss'],
+  styleUrl: './passer-simple.component.scss',
 })
 export class PasserSimpleComponent {
 }

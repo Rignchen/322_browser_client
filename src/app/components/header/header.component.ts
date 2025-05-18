@@ -18,20 +18,20 @@ export class HeaderComponent implements OnInit {
 	// Method to handle search input change
 	onKeyUp(event: Event): void {
 		const input = event.target as HTMLInputElement;
-		this.redrectSearch(input.value);
+		this.redirectSearch(input.value);
 	}
 	onSearchButtonClick(event: Event): void {
 		const input = (event.target as HTMLElement).parentElement?.parentElement?.getElementsByTagName('input');
-		if (!input) throw new Error('The input element disappeared :(');
+		if (!input) throw new Error('Input not found');
 		if (this.lastPath.length === 0) return;
-		this.redrectSearch(input[0].value, true);
+		this.redirectSearch(input[0].value, true);
 	}
 
 	ngOnInit(): void {
 		this.route.queryParams.subscribe(params => this.params = params);
 	}
 
-	redrectSearch(search: string, addToHistory: boolean = false): void {
+	redirectSearch(search: string, addToHistory: boolean = false): void {
 		if (!search) {
 			this.router.navigate([this.lastPath]);
 			this.lastPath = '';
