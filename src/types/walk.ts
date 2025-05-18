@@ -1,4 +1,3 @@
-import env from './env';
 import fetcher from './fetch';
 
 export default class Walk {
@@ -10,7 +9,7 @@ export default class Walk {
 	distance_km: number = 0;
 	elevation_gain_m: number = 0;
 	terrain: string = '';
-	path: {lat: number, lng: number}[] = [];
+	path: google.maps.LatLngLiteral[] = [];
 	accessibility: string[] = [];
 	difficulty: string = '';
 	map_link: string = '';
