@@ -64,11 +64,11 @@
 .section-title {
   font-size: 16px;
   font-weight: 500;
+  padding: 0 10px;
   margin-bottom: 16px;
   color: #333;
 }
 
-/* Categories Grid */
 .categories-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -111,7 +111,6 @@
   width: 20px;
 }
 
-/* Featured Walks */
 .featured-walks {
   display: grid;
   grid-template-columns: 1fr;
@@ -141,7 +140,6 @@
   background-color: #007a61;
 }
 
-/* Responsive designs */
 @media screen and (min-width: 768px) {
   .section-title {
     font-size: 24px;
@@ -156,13 +154,11 @@
   }
 }
 
-/* Specific order changes for mobile/desktop */
 .home-container {
   display: flex;
   flex-direction: column;
 }
 
-/* Desktop order: Category first, then Walks */
 .section-container.featured-walks-section {
   order: 2;
 }
@@ -171,14 +167,21 @@
   order: 1;
 }
 
-/* Mobile order: Walks first, then Category */
 @media screen and (max-width: 767px) {
+  .section-container {
+    padding: 0 2px;
+  }
+
   .section-container.featured-walks-section {
     order: 1;
   }
 
   .section-container:nth-child(3) {
     order: 2;
+  }
+
+  .card {
+    width: calc(100vw - 48px);
   }
 }
 
