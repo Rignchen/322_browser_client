@@ -2,9 +2,6 @@
 # env
 src/types/env.ts
 
-# We don't have automated tests
-*.spec.ts
-
 # Compiled output
 /dist
 /tmp
