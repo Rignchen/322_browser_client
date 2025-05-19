@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { it, expect } from 'vitest';
-import Category from './category';
+import Category from '#types/category.js';
 
 it('should redirect properly', () => {
   const expected = {

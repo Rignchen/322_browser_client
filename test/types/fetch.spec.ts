@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { formatFilters } from './fetch'
+import { formatFilters } from '#types/fetch.js'
 
 describe('formatFilters', () => {
 	it('should be empty if all parameters are null', () => {

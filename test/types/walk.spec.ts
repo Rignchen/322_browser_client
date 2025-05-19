@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import Walk, { filterAccessibility } from './walk';
+import Walk, { filterAccessibility } from '#types/walk.js';
 
 describe('instantiate a walk', () => {
 	it('should create a walk with empty values', () => {
