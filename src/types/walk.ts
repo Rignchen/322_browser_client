@@ -61,13 +61,24 @@ export default class Walk {
 			});
 
 		// Filter the accessibility array to only include those that have at least one of the selected values
+		data = this.filterAccessibility(data, accessibility);
+
+		return data;
+	}
+
+	/**
+	 * Filters the walks based on the selected accessibility options.
+	 * @param data The array of Walk objects to filter
+	 * @param accessibility The selected accessibility options
+	 * @returns The filtered array of Walk objects
+	 */
+	static filterAccessibility(data: Walk[], accessibility: string[]) {
 		if (accessibility.length > 0) {
 			data = data.filter((walk: any) => {
 				// only those that have all of the selected values
 				return accessibility.every((a) => walk.accessibility.includes(a));
 			});
 		}
-
 		return data;
 	}
 
