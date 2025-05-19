@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import Walk from './walk';
+import Walk, { filterAccessibility } from './walk';
 
 describe('instantiate a walk', () => {
 	it('should create a walk with empty values', () => {
@@ -52,7 +52,7 @@ describe('filter walks on accessibility', () => {
 			new Walk().fromObject({ id: 2, name: 'Walk 2', accessibility: ['C'] }),
 			new Walk().fromObject({ id: 3, name: 'Walk 3', accessibility: ['A', 'C'] }),
 		];
-		const result = Walk.filterAccessibility(data, []);
+		const result = filterAccessibility(data, []);
 		expect(result).toEqual(data);
 	});
 	describe('should keep only the walks that have all of the selected accessibility values', () => {
@@ -62,7 +62,7 @@ describe('filter walks on accessibility', () => {
 				new Walk().fromObject({ id: 2, name: 'Walk 2', accessibility: ['C'] }),
 				new Walk().fromObject({ id: 3, name: 'Walk 3', accessibility: ['A', 'C'] }),
 			];
-			const result = Walk.filterAccessibility(data, ['A']);
+			const result = filterAccessibility(data, ['A']);
 			expect(result).toEqual([data[0], data[2]]);
 		});
 		it('with multiple values', () => {
@@ -71,7 +71,7 @@ describe('filter walks on accessibility', () => {
 				new Walk().fromObject({ id: 2, name: 'Walk 2', accessibility: ['C'] }),
 				new Walk().fromObject({ id: 3, name: 'Walk 3', accessibility: ['A', 'C'] }),
 			];
-			const result = Walk.filterAccessibility(data, ['A', 'C']);
+			const result = filterAccessibility(data, ['A', 'C']);
 			expect(result).toEqual([data[2]]);
 		});
 	});
